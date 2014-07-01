@@ -1,0 +1,21 @@
+[
+{
+  "modid": "millworks",
+  "name": "MillWorks",
+  "description": "Automate Minecraft with mechanical power.",
+  "version": "1.0",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": [
+  "blueyu2"
+  ],
+  "credits": "Pahimar's Let's Mod Reboot",
+  "logoFile": "",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]
