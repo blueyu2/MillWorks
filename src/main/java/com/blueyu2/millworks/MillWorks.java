@@ -1,6 +1,7 @@
 package com.blueyu2.millworks;
 
 import com.blueyu2.millworks.configuration.ConfigurationHandler;
+import com.blueyu2.millworks.init.ModBlocks;
 import com.blueyu2.millworks.proxy.IProxy;
 import com.blueyu2.millworks.reference.Reference;
 import cpw.mods.fml.common.Mod;
@@ -23,6 +24,7 @@ public class MillWorks {
     public void preInit(FMLPreInitializationEvent event){
     //Network Handling, Mod Configuration, Add items and blocks
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
+        ModBlocks.init();
     }
     @Mod.EventHandler
     public void init(FMLInitializationEvent event){
