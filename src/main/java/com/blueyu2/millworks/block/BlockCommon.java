@@ -1,5 +1,6 @@
 package com.blueyu2.millworks.block;
 
+import com.blueyu2.millworks.utility.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -18,6 +19,6 @@ public class BlockCommon extends Block {
     }
 
     public void TESTY(){
-        System.out.println("TESTY: " + getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+        LogHelper.info("TESTY: " + getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
 }
