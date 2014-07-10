@@ -2,6 +2,7 @@ package com.blueyu2.millworks;
 
 import com.blueyu2.millworks.handler.ConfigurationHandler;
 import com.blueyu2.millworks.init.ModBlocks;
+import com.blueyu2.millworks.init.ModItems;
 import com.blueyu2.millworks.proxy.IProxy;
 import com.blueyu2.millworks.reference.Reference;
 import com.blueyu2.millworks.utility.LogHelper;
@@ -27,8 +28,8 @@ public class MillWorks {
     //Network Handling, Mod Configuration, Add items and blocks
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
+        ModItems.init();
         ModBlocks.init();
-        LogHelper.info("TESTY!!!");
     }
     @Mod.EventHandler
     public void init(FMLInitializationEvent event){

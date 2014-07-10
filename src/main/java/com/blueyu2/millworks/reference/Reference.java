@@ -10,4 +10,5 @@ public class Reference {
     public static final String CLIENT_PROXY_CLASS = "com.blueyu2.millworks.proxy.ClientProxy";
     public static final String SERVER_PROXY_CLASS = "com.blueyu2.millworks.proxy.ServerProxy";
     public static final String GUI_FACTORY_CLASS = "com.blueyu2.millworks.client.gui.GuiFactory";
+    public static final String RESOURCE_PREFIX = MOD_ID.toLowerCase() + ":";
 }
