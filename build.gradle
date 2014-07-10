@@ -22,7 +22,7 @@ group= "com.blueyu2.millworks" // http://maven.apache.org/guides/mini/guide-nami
 archivesBaseName = "MillWorks"
 
 minecraft {
-    version = "1.7.10-10.13.0.1160"
+    version = "1.7.10-10.13.0.1179"
     assetDir = "eclipse/assets"
 }
 

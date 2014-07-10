@@ -1,4 +1,4 @@
 # Item localizations
 item.millworks:textile.name=Textile
 # Block localizations
-tile.millStone.name=Millstone
+tile.millworks:millStone.name=Millstone
