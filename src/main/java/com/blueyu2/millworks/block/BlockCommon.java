@@ -7,12 +7,14 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.IIcon;
 
 /**
  * Created by Blueyu2 on 7/1/2014.
  */
 public class BlockCommon extends Block {
+    public int texturesNeeded;
+    public IIcon[] iconArray;
     public BlockCommon(Material material) {
         super(material);
     }
@@ -28,10 +30,16 @@ public class BlockCommon extends Block {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister)
     {
-        blockIcon = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
+        iconArray=new IIcon[texturesNeeded];
+        for(int i=0;i<texturesNeeded;i++){
+            iconArray[i] = iconRegister.registerIcon(String.format("%s_%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName()),i));
+        }
     }
     protected String getUnwrappedUnlocalizedName(String unlocalizedName)
     {
         return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
+    }
+    public void getTextures(int number){
+        texturesNeeded = number;
     }
 }
