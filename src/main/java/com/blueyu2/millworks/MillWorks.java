@@ -3,6 +3,7 @@ package com.blueyu2.millworks;
 import com.blueyu2.millworks.handler.ConfigurationHandler;
 import com.blueyu2.millworks.init.ModBlocks;
 import com.blueyu2.millworks.init.ModItems;
+import com.blueyu2.millworks.init.Recipes;
 import com.blueyu2.millworks.proxy.IProxy;
 import com.blueyu2.millworks.reference.Reference;
 import com.blueyu2.millworks.utility.LogHelper;
@@ -34,6 +35,7 @@ public class MillWorks {
     @Mod.EventHandler
     public void init(FMLInitializationEvent event){
     //Register GUIS, TileEntities, Recipies
+        Recipes.init();
     }
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event){

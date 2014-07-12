@@ -1,5 +1,6 @@
 package com.blueyu2.millworks.block;
 
+import com.blueyu2.millworks.creativetab.CreativeTab;
 import com.blueyu2.millworks.reference.Reference;
 import com.blueyu2.millworks.utility.LogHelper;
 import cpw.mods.fml.relauncher.Side;
@@ -17,6 +18,7 @@ public class BlockCommon extends Block {
     public IIcon[] iconArray;
     public BlockCommon(Material material) {
         super(material);
+        this.setCreativeTab(CreativeTab.MillWorksTab);
     }
     public BlockCommon(){
         this(Material.rock);
@@ -30,6 +32,10 @@ public class BlockCommon extends Block {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister)
     {
+        if(texturesNeeded == 0){
+            blockIcon = iconRegister.registerIcon(getUnwrappedUnlocalizedName(this.getUnlocalizedName()));
+            return;
+        }
         iconArray=new IIcon[texturesNeeded];
         for(int i=0;i<texturesNeeded;i++){
             iconArray[i] = iconRegister.registerIcon(String.format("%s_%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName()),i));

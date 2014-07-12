@@ -1,5 +1,6 @@
 package com.blueyu2.millworks.item;
 
+import com.blueyu2.millworks.creativetab.CreativeTab;
 import com.blueyu2.millworks.reference.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -13,6 +14,7 @@ import net.minecraft.item.ItemStack;
 public class ItemCommon extends Item {
     public ItemCommon(){
         super();
+        this.setCreativeTab(CreativeTab.MillWorksTab);
     }
     @Override
     public String getUnlocalizedName(){
