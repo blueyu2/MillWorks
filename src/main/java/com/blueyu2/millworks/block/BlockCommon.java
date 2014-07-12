@@ -33,7 +33,7 @@ public class BlockCommon extends Block {
     public void registerBlockIcons(IIconRegister iconRegister)
     {
         if(texturesNeeded == 0){
-            blockIcon = iconRegister.registerIcon(getUnwrappedUnlocalizedName(this.getUnlocalizedName()));
+            blockIcon = iconRegister.registerIcon(getUnwrappedUnlocalizedName(this.getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
             return;
         }
         iconArray=new IIcon[texturesNeeded];
