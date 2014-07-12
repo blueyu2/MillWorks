@@ -1,7 +1,6 @@
 package com.blueyu2.millworks.init;
 
-import com.blueyu2.millworks.block.BlockCommon;
-import com.blueyu2.millworks.block.BlockMillStone;
+import com.blueyu2.millworks.block.*;
 import com.blueyu2.millworks.reference.Names;
 import com.blueyu2.millworks.reference.Reference;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -12,7 +11,11 @@ import cpw.mods.fml.common.registry.GameRegistry;
 @GameRegistry.ObjectHolder(Reference.MOD_ID)
 public class ModBlocks {
     public static final BlockCommon millStoneBlock = new BlockMillStone();
+    public static final BlockPillarCommon pillarStoneBlock = new BlockPillarStone();
+    public static final BlockPillarCommon pillarSandBlock = new BlockPillarSand();
     public static void init(){
         GameRegistry.registerBlock(millStoneBlock, Names.Blocks.MILLSTONE);
+        GameRegistry.registerBlock(pillarStoneBlock, Names.Blocks.PILLARSTONE);
+        GameRegistry.registerBlock(pillarSandBlock, Names.Blocks.PILLARSAND);
     }
 }

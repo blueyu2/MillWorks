@@ -6,6 +6,10 @@ package com.blueyu2.millworks.reference;
 public class Names {
     public static final class Blocks{
         public static final String MILLSTONE = "millStone";
+        public static final String PILLARSTONE = "pillarStone";
+        public static final String PILLARSAND = "pillarSand";
+
+
     }
     public static final class Items{
         public static final String TEXTILE = "textile";

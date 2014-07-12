@@ -2,3 +2,5 @@
 item.millworks:textile.name=Textile
 # Block localizations
 tile.millworks:millStone.name=Millstone
+tile.millworks:pillarStone.name=Stone Pillar
+tile.millworks:pillarSand.name=Sandstone Pillar
