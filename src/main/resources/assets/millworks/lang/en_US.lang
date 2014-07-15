@@ -4,3 +4,6 @@ item.millworks:textile.name=Textile
 tile.millworks:millStone.name=Millstone
 tile.millworks:pillarStone.name=Stone Pillar
 tile.millworks:pillarSand.name=Sandstone Pillar
+tile.millworks:shaft.name=Shaft
+# GUI localizations
+container.millworks:millStone=Millstone

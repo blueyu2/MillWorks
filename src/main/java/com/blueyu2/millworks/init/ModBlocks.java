@@ -13,9 +13,11 @@ public class ModBlocks {
     public static final BlockCommon millStoneBlock = new BlockMillStone();
     public static final BlockPillarCommon pillarStoneBlock = new BlockPillarStone();
     public static final BlockPillarCommon pillarSandBlock = new BlockPillarSand();
+    public static final BlockPillarCommon shaftBlock = new BlockShaft();
     public static void init(){
         GameRegistry.registerBlock(millStoneBlock, Names.Blocks.MILLSTONE);
         GameRegistry.registerBlock(pillarStoneBlock, Names.Blocks.PILLARSTONE);
         GameRegistry.registerBlock(pillarSandBlock, Names.Blocks.PILLARSAND);
+        GameRegistry.registerBlock(shaftBlock, Names.Blocks.SHAFT);
     }
 }

@@ -15,10 +15,13 @@ import net.minecraft.util.IIcon;
 public class BlockPillarCommon extends BlockRotatedPillar {
     //public int texturesNeeded;
     public IIcon[] iconArray = new IIcon[2];
-    protected BlockPillarCommon() {
-        super(Material.rock);
+    public BlockPillarCommon(Material material) {
+        super(material);
         this.setCreativeTab(CreativeTab.MillWorksTab);
 
+    }
+    public BlockPillarCommon(){
+        this(Material.rock);
     }
     public int damageDropped(int meta)
     {

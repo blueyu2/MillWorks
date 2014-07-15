@@ -2,6 +2,8 @@ package com.blueyu2.millworks.creativetab;
 
 import com.blueyu2.millworks.init.ModBlocks;
 import com.blueyu2.millworks.reference.Reference;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -16,6 +18,7 @@ public class CreativeTab {
             return Item.getItemFromBlock(ModBlocks.millStoneBlock);
         }
         @Override
+        @SideOnly(Side.CLIENT)
         public String getTranslatedTabLabel(){
             return Reference.MOD_NAME;
         }
