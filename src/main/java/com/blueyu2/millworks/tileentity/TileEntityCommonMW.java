@@ -7,11 +7,11 @@ import net.minecraft.tileentity.TileEntity;
 /**
  * Created by Blueyu2 on 7/12/2014.
  */
-public class TileEntityCommon extends TileEntity
+public class TileEntityCommonMW extends TileEntity
 {
     protected String customName;
 
-    public TileEntityCommon()
+    public TileEntityCommonMW()
     {
         customName = "";
     }

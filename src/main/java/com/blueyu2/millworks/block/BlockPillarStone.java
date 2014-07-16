@@ -1,15 +1,11 @@
 package com.blueyu2.millworks.block;
 
 import com.blueyu2.millworks.reference.Names;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.util.IIcon;
-import net.minecraft.world.World;
 
 /**
  * Created by Blueyu2 on 7/12/2014.
  */
-public class BlockPillarStone extends BlockPillarCommon {
+public class BlockPillarStone extends BlockPillarCommonMW {
     public BlockPillarStone() {
         super();
         this.setBlockName(Names.Blocks.PILLARSTONE);

@@ -3,15 +3,11 @@ package com.blueyu2.millworks.block;
 import com.blueyu2.millworks.MillWorks;
 import com.blueyu2.millworks.reference.GuiIds;
 import com.blueyu2.millworks.reference.Names;
-import com.blueyu2.millworks.tileentity.TileEntityCommon;
 import com.blueyu2.millworks.tileentity.TileEntityMillStone;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.ITileEntityProvider;
-import net.minecraft.block.material.Material;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
@@ -19,7 +15,7 @@ import net.minecraft.world.World;
 /**
  * Created by Blueyu2 on 7/1/2014.
  */
-public class BlockMillStone extends BlockCommon implements ITileEntityProvider {
+public class BlockMillStone extends BlockCommonMW implements ITileEntityProvider {
 
     public BlockMillStone() {
         super();
@@ -55,15 +51,5 @@ public class BlockMillStone extends BlockCommon implements ITileEntityProvider {
             }
         }
         return true;
-    }
-
-    //Gets custom name for block
-    @Override
-    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityLivingBase, ItemStack itemStack)
-    {
-        if(itemStack.hasDisplayName())
-        {
-            ((TileEntityCommon) world.getTileEntity(x, y, z)).setCustomName(itemStack.getDisplayName());
-        }
     }
 }

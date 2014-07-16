@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 /**
  * Created by Blueyu2 on 7/12/2014.
  */
-public class BlockShaft extends BlockPillarCommon {
+public class BlockShaft extends BlockPillarCommonMW {
     public BlockShaft() {
         super(Material.wood);
         this.setBlockName(Names.Blocks.SHAFT);

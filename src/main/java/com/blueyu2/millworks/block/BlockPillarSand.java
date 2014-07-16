@@ -5,7 +5,7 @@ import com.blueyu2.millworks.reference.Names;
 /**
  * Created by Blueyu2 on 7/12/2014.
  */
-public class BlockPillarSand extends BlockPillarCommon {
+public class BlockPillarSand extends BlockPillarCommonMW {
     public BlockPillarSand() {
         super();
         this.setBlockName(Names.Blocks.PILLARSAND);
