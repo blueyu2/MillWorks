@@ -11,7 +11,6 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -27,7 +26,7 @@ public class BlockCommonMW extends Block {
     public int texturesNeeded;
     public IIcon[] iconArray;
 
-    public BlockCommonMW(Material material) {
+    public BlockCommonMW(Material material){
         super(material);
         this.setCreativeTab(CreativeTab.MillWorksTab);
     }
@@ -37,15 +36,13 @@ public class BlockCommonMW extends Block {
     }
 
     @Override
-    public String getUnlocalizedName()
-    {
+    public String getUnlocalizedName(){
         return String.format("tile.%s%s", Reference.RESOURCE_PREFIX, getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister)
-    {
+    public void registerBlockIcons(IIconRegister iconRegister){
         if(texturesNeeded == 0){
             blockIcon = iconRegister.registerIcon(getUnwrappedUnlocalizedName(this.getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
             return;
@@ -56,8 +53,7 @@ public class BlockCommonMW extends Block {
         }
     }
 
-    protected String getUnwrappedUnlocalizedName(String unlocalizedName)
-    {
+    protected String getUnwrappedUnlocalizedName(String unlocalizedName){
         return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
     }
 
@@ -73,11 +69,9 @@ public class BlockCommonMW extends Block {
 
     //Gets custom name for block
     @Override
-    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityLivingBase, ItemStack itemStack)
-    {
+    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityLivingBase, ItemStack itemStack){
         if (world.getTileEntity(x, y, z) instanceof TileEntityCommonMW){
-            if(itemStack.hasDisplayName())
-            {
+            if(itemStack.hasDisplayName()){
                 ((TileEntityCommonMW) world.getTileEntity(x, y, z)).setCustomName(itemStack.getDisplayName());
             }
         }

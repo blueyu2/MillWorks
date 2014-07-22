@@ -7,7 +7,6 @@ import com.blueyu2.millworks.init.ModItems;
 import com.blueyu2.millworks.init.Recipes;
 import com.blueyu2.millworks.proxy.IProxy;
 import com.blueyu2.millworks.reference.Reference;
-import com.blueyu2.millworks.utility.LogHelper;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;

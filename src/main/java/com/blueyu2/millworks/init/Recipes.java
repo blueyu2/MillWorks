@@ -27,6 +27,6 @@ public class Recipes {
         RecipesMillStone.getInstance().addRecipe(new ItemStack(Blocks.sand), new ItemStack(Blocks.gravel));
         RecipesMillStone.getInstance().addRecipe(new ItemStack(Items.blaze_powder, 3, 0), new ItemStack(Items.blaze_rod));
         RecipesMillStone.getInstance().addRecipe(new ItemStack(Items.dye, 4, 15), new ItemStack(Items.bone));
-
+        RecipesMillStone.getInstance().addRecipe(new ItemStack(Items.dye, 1, 15), new ItemStack(Items.fish));
     }
 }

@@ -10,6 +10,7 @@ public class Names {
         public static final String PILLARSTONE = "pillarStone";
         public static final String PILLARSAND = "pillarSand";
         public static final String SHAFT = "shaft";
+        public static final String TESTY = "testy";
     }
 
     public static final class Items

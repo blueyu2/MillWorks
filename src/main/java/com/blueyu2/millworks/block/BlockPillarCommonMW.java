@@ -13,7 +13,6 @@ import net.minecraft.util.IIcon;
  * Created by Blueyu2 on 7/12/2014.
  */
 public class BlockPillarCommonMW extends BlockRotatedPillar {
-    //public int texturesNeeded;
     public IIcon[] iconArray = new IIcon[2];
     public BlockPillarCommonMW(Material material) {
         super(material);
@@ -38,23 +37,11 @@ public class BlockPillarCommonMW extends BlockRotatedPillar {
     {
         iconArray[0] = iconRegister.registerIcon(String.format("%s_%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName()),0));
         iconArray[1] = iconRegister.registerIcon(String.format("%s_%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName()),1));
-
-        /*if(texturesNeeded == 0){
-            blockIcon = iconRegister.registerIcon(getUnwrappedUnlocalizedName(this.getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
-            return;
-        }
-        iconArray=new IIcon[texturesNeeded];
-        for(int i=0;i<texturesNeeded;i++){
-            iconArray[i] = iconRegister.registerIcon(String.format("%s_%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName()),i));
-        }*/
     }
     protected String getUnwrappedUnlocalizedName(String unlocalizedName)
     {
         return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
     }
-    /*public void getTextures(int number){
-        texturesNeeded = number;
-    }*/
     @Override
     protected IIcon getSideIcon(int meta) {
         return iconArray[1];

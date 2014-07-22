@@ -26,9 +26,7 @@ public class BlockMillStone extends BlockCommonMW implements ITileEntityProvider
     }
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta){
-        if (side == 0){return iconArray[2];}
-        else if (side == 1){return iconArray[0];}
-        else{return iconArray[1];}
+        return side == 0 ? iconArray[2] : side == 1 ? iconArray[0] : iconArray[1];
     }
 
     @Override
@@ -51,5 +49,9 @@ public class BlockMillStone extends BlockCommonMW implements ITileEntityProvider
             }
         }
         return true;
+    }
+    //Plays sound when machine is in operation
+    public void playOperation(World world, int x, int y, int z){
+        world.playSoundEffect((double) x + 0.5D, (double) y + 0.5D, (double) z + 0.5D, "minecart.base", 0.1F, world.rand.nextFloat() * 0.1F + 0.9F);
     }
 }

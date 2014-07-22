@@ -6,7 +6,6 @@ import com.blueyu2.millworks.reference.Textures;
 import com.blueyu2.millworks.tileentity.TileEntityMillStone;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.util.StatCollector;
 import org.lwjgl.opengl.GL11;
 
@@ -38,8 +37,6 @@ public class GuiMillStone extends GuiContainer {
         int yStart = (height - ySize) / 2;
         this.drawTexturedModalRect(xStart, yStart, 0, 0, xSize, ySize);
         int scaleAdjustment;
-
-        /*if (this.tileEntityMillStone.)*/
 
         scaleAdjustment = this.tileEntityMillStone.getProcessScaled(24);
         this.drawTexturedModalRect(xStart + 79, yStart + 34, 176, 16, scaleAdjustment + 1, 16);

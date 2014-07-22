@@ -3,7 +3,6 @@ package com.blueyu2.millworks.client.gui;
 import com.blueyu2.millworks.handler.ConfigurationHandler;
 import com.blueyu2.millworks.reference.Reference;
 import cpw.mods.fml.client.config.GuiConfig;
-import cpw.mods.fml.client.config.IConfigElement;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;

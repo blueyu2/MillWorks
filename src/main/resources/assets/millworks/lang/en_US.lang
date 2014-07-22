@@ -7,3 +7,5 @@ tile.millworks:pillarSand.name=Sandstone Pillar
 tile.millworks:shaft.name=Shaft
 # GUI localizations
 container.millworks:millStone=Millstone
+
+itemGroup.millworks=MillWorks

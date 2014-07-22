@@ -2,6 +2,7 @@ package com.blueyu2.millworks.proxy;
 
 import com.blueyu2.millworks.reference.Names;
 import com.blueyu2.millworks.tileentity.TileEntityMillStone;
+import com.blueyu2.millworks.tileentity.TileEntityTESTY;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 /**
@@ -10,5 +11,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public abstract class CommonProxy implements IProxy {
     public void registerTileEntities(){
         GameRegistry.registerTileEntity(TileEntityMillStone.class, "tile." + Names.Blocks.MILLSTONE);
+        GameRegistry.registerTileEntity(TileEntityTESTY.class, "tile." + Names.Blocks.TESTY);
     }
 }

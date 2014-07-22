@@ -1,25 +1,32 @@
 package com.blueyu2.millworks.tileentity;
 
+import com.blueyu2.millworks.block.BlockMillStone;
 import com.blueyu2.millworks.item.crafting.RecipeMillStone;
 import com.blueyu2.millworks.recipe.RecipesMillStone;
 import com.blueyu2.millworks.reference.Names;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraftforge.common.util.ForgeDirection;
 
 /**
  * Created by Blueyu2 on 7/12/2014.
  */
-public class TileEntityMillStone extends TileEntityCommonMW implements IInventory {
+public class TileEntityMillStone extends TileEntityCommonMW implements ISidedInventory {
     public static final int INVENTORY_SIZE = 2;
     public static final int INPUT_INDEX = 0;
     public static final int OUTPUT_INDEX = 1;
 
     public int processTime;
+    //Used if millstone is processing something
+    public boolean STATE = false;
+    //Used to cool down sound playing to prevent spam
+    public int cool;
 
     private ItemStack[] inventory;
     public TileEntityMillStone(){
@@ -148,7 +155,7 @@ public class TileEntityMillStone extends TileEntityCommonMW implements IInventor
         nbtTagCompound.setTag("Items", tagList);
         nbtTagCompound.setInteger("processTime", processTime);
     }
-    //TODO for recipes, later
+
     @Override
     public void updateEntity()
     {
@@ -157,6 +164,7 @@ public class TileEntityMillStone extends TileEntityCommonMW implements IInventor
         {
             if (this.canProcess()){
                 this.processTime++;
+                this.STATE = true;
                 if(this.processTime == 200){
                     this.processTime = 0;
                     this.processItem();
@@ -165,12 +173,27 @@ public class TileEntityMillStone extends TileEntityCommonMW implements IInventor
             }
             else{
                 this.processTime = 0;
+                this.STATE = false;
             }
         }
 
         if (sendUpdate){
             markDirty();
         }
+
+        if (STATE){
+            Block block = worldObj.getBlock(xCoord, yCoord, zCoord);
+            if(block instanceof BlockMillStone) {
+                if(cool==0) {
+                    ((BlockMillStone) block).playOperation(worldObj, xCoord, yCoord, zCoord);
+                }
+            }
+            cool++;
+            if(cool > 30){
+                cool = 0;
+            }
+        }
+        else{cool=0;}
     }
 
     private boolean canProcess()
@@ -218,5 +241,20 @@ public class TileEntityMillStone extends TileEntityCommonMW implements IInventor
     @SideOnly(Side.CLIENT)
     public int getProcessScaled(int scale){
         return this.processTime * scale / 200;
+    }
+
+    @Override
+    public int[] getAccessibleSlotsFromSide(int side) {
+        return side == ForgeDirection.DOWN.ordinal() ? new int[]{OUTPUT_INDEX} : new int[]{INPUT_INDEX};
+    }
+
+    @Override
+    public boolean canInsertItem(int slotIndex, ItemStack itemStack, int side) {
+        return isItemValidForSlot(slotIndex, itemStack);
+    }
+
+    @Override
+    public boolean canExtractItem(int slotIndex, ItemStack itemStack, int side) {
+        return slotIndex == OUTPUT_INDEX;
     }
 }
