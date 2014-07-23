@@ -39,6 +39,6 @@ public class GuiMillStone extends GuiContainer {
         int scaleAdjustment;
 
         scaleAdjustment = this.tileEntityMillStone.getProcessScaled(24);
-        this.drawTexturedModalRect(xStart + 79, yStart + 34, 176, 16, scaleAdjustment + 1, 16);
+        this.drawTexturedModalRect(xStart + 79, yStart + 34, 176, 0, scaleAdjustment + 1, 16);
     }
 }

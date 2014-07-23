@@ -4,6 +4,7 @@ import com.blueyu2.millworks.block.BlockMillStone;
 import com.blueyu2.millworks.item.crafting.RecipeMillStone;
 import com.blueyu2.millworks.recipe.RecipesMillStone;
 import com.blueyu2.millworks.reference.Names;
+import com.blueyu2.millworks.utility.IMechanicalMW;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -17,7 +18,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 /**
  * Created by Blueyu2 on 7/12/2014.
  */
-public class TileEntityMillStone extends TileEntityCommonMW implements ISidedInventory {
+public class TileEntityMillStone extends TileEntityCommonMW implements ISidedInventory, IMechanicalMW {
     public static final int INVENTORY_SIZE = 2;
     public static final int INPUT_INDEX = 0;
     public static final int OUTPUT_INDEX = 1;
@@ -27,6 +28,8 @@ public class TileEntityMillStone extends TileEntityCommonMW implements ISidedInv
     public boolean STATE = false;
     //Used to cool down sound playing to prevent spam
     public int cool;
+    //Used to check if machine is powered or not
+    public boolean powered;
 
     private ItemStack[] inventory;
     public TileEntityMillStone(){
@@ -162,18 +165,23 @@ public class TileEntityMillStone extends TileEntityCommonMW implements ISidedInv
         boolean sendUpdate = false;
         if (!this.worldObj.isRemote)
         {
-            if (this.canProcess()){
-                this.processTime++;
-                this.STATE = true;
-                if(this.processTime == 200){
-                    this.processTime = 0;
-                    this.processItem();
-                    sendUpdate = true;
+            if(this.powered){
+                if (this.canProcess()){
+                    this.processTime++;
+                    if(this.processTime == 200){
+                        this.processTime = 0;
+                        this.processItem();
+                        sendUpdate = true;
+                    }
                 }
+                else{
+                    this.processTime = 0;
+                }
+                this.STATE = true;
             }
             else{
-                this.processTime = 0;
                 this.STATE = false;
+                this.processTime = 0;
             }
         }
 
@@ -194,6 +202,7 @@ public class TileEntityMillStone extends TileEntityCommonMW implements ISidedInv
             }
         }
         else{cool=0;}
+        this.powered = false;
     }
 
     private boolean canProcess()
@@ -256,5 +265,16 @@ public class TileEntityMillStone extends TileEntityCommonMW implements ISidedInv
     @Override
     public boolean canExtractItem(int slotIndex, ItemStack itemStack, int side) {
         return slotIndex == OUTPUT_INDEX;
+    }
+
+    @Override
+    public boolean mechanicalReceive(ForgeDirection from, int energy, boolean reverse) {
+        if(from == ForgeDirection.UP){
+            if(energy >= 15){
+                powered = true;
+            }
+            return true;
+        }
+    return false;
     }
 }
